@@ -12,11 +12,15 @@ private:
 	sf::RenderWindow* window;
 	sf::Event ev;
 
+	sf::Clock dtClock;
+	float dt;
+
 	void initWindow();
 public:
 	Game();
 	virtual ~Game();
 
+	void updateDt();
 	void updateEvents();
 	void update();
 	void render();

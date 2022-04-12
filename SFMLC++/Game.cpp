@@ -12,6 +12,13 @@ Game::~Game() {
 	delete this->window;
 }
 
+void Game::updateDt()
+{
+	this->dt = this->dtClock.restart().asSeconds();
+	system("cls");
+	std::cout << this->dt << std::endl;
+}
+
 void Game::updateEvents()
 {
 	while (this->window->pollEvent(this->ev)) {
@@ -38,8 +45,8 @@ void Game::run()
 {
 	while (this->window->isOpen())
 	{
+		this->updateDt();
 		this->update();
-
 		this->render();
 	}
 }
